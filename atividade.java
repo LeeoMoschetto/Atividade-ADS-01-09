@@ -68,35 +68,35 @@ public class Principal {
                 switch (opcao){
                     case 1:
                         Projeto projeto =new Projeto();
-                        projeto.setNome(coletarTexto("Digite o nome do projeto"));
-                        projeto.setObjetivo(coletarTexto("Digite os objetivos do projeto"));
-                        projeto.setNecessidades(coletarTexto("Digite as necessidades do projeto"));
-                        projeto.setDataInicio(coletarTexto("Digite a data de início do projeto"));
-                        projeto.setDataFinal(coletarTexto("Digite a data final do projeto"));
-                        projeto.setStatus(coletarTexto("Digite o status do projeto"));
+                        projeto.setNome(coletarTexto("Estoque de livros "));
+                        projeto.setObjetivo(coletarTexto("Coletar livros e exibir informações ao usuario sobre quantidade, estoque e mais opções para seu manuseio"));
+                        projeto.setNecessidades(coletarTexto("Necessario inserir informações para alimentar banco de daods "));
+                        projeto.setDataInicio(coletarTexto("25/09/2021"));
+                        projeto.setDataFinal(coletarTexto("28/09/2021"));
+                        projeto.setStatus(coletarTexto("Coleta de livros para atualização do banco"));
                         dao.adicionar(projeto);
                         break;
                     case 2:
-                        String nomeConsultaAlterar = coletarTexto("Digite o nome do projeto que está buscando para alterar");
+                        String nomeConsultaAlterar = coletarTexto("Digite o nome do livro que está buscando para alterar");
                         Projeto projetoNovo = new Projeto();
-                        projetoNovo.setNome(coletarTexto("Digite o nome do projeto"));
-                        projetoNovo.setObjetivo(coletarTexto("Digite os objetivos do projeto"));
-                        projetoNovo.setNecessidades(coletarTexto("Digite as necessidades do projeto"));
-                        projetoNovo.setDataInicio(coletarTexto("Digite a data de início do projeto"));
-                        projetoNovo.setDataFinal(coletarTexto("Digite a data final do projeto"));
-                        projetoNovo.setStatus(coletarTexto("Digite o status do projeto"));
+                        projetoNovo.setNome(coletarTexto("Digite o nome do livro"));
+                        projetoNovo.setObjetivo(coletarTexto("Digite os objetivos do livro"));
+                        projetoNovo.setNecessidades(coletarTexto("Digite as necessidades do livro"));
+                        projetoNovo.setDataInicio(coletarTexto("Digite a data de início do livro"));
+                        projetoNovo.setDataFinal(coletarTexto("Digite a data final do livro"));
+                        projetoNovo.setStatus(coletarTexto("Digite o status do livro"));
                         dao.alterar(nomeConsultaAlterar, projetoNovo);
                         break;
                     case 3:
                         System.out.println(dao.listar());
                         break;
                     case 4:
-                        String nomeConsultado = coletarTexto("Digite o nome do projeto que está buscando");
+                        String nomeConsultado = coletarTexto("Digite o nome do livro que está buscando");
                         Projeto projetoEncontrado = dao.consultarPorNome(nomeConsultado);
                         System.out.println(projetoEncontrado);
                         break;
                     case 5:
-                        String nomeConsultaExcluir = coletarTexto("Digite o nome do projeto que está buscando para excluir");
+                        String nomeConsultaExcluir = coletarTexto("Digite o nome do livro que está buscando para excluir");
                         dao.excluir(nomeConsultaExcluir);
                         break;
                     case 0:
@@ -134,7 +134,7 @@ public class JPAUtil {
  
     public static EntityManager getEntityManagerFactory() {
         if (entityManagerFactory==null) {
-            entityManagerFactory = Persistence.createEntityManagerFactory("projetos");
+            entityManagerFactory = Persistence.createEntityManagerFactory("livro");
         }
         return entityManagerFactory.createEntityManager();
     }
@@ -252,7 +252,7 @@ public class Projeto {
  
     @Override
     public String toString() {
-        return "\nProjeto: \n" +
+        return "\nlivro: \n" +
                 "Nome: " + nome + "\n" +
                 "Objetivo: " + objetivo + "\n" +
                 "Necessidades: " + necessidades + "\n" +
